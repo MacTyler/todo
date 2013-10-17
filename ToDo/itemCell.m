@@ -7,7 +7,6 @@
 //
 
 #import "itemCell.h"
-#import "ItemsViewController.h"
 
 @implementation itemCell
 
@@ -16,7 +15,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        _toDoItem.delegate = self.textFieldDelegate;
+//        _toDoItem.delegate = self.textFieldDelegate;
+        
     }
     return self;
 }

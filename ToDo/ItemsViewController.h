@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "itemCell.h"
+//#import "itemCell.h"
 
 @interface ItemsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
-@property (strong, nonatomic) NSMutableArray *toDoArray;
-- (IBAction)addToDoItem:(id)sender;
+//@property (strong, nonatomic) NSMutableArray *toDoArray;
+//- (IBAction)addToDoItem:(id)sender;
 
 @end

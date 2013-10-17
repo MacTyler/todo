@@ -11,6 +11,6 @@
 @interface itemCell : UITableViewCell
 @property (nonatomic, retain) IBOutlet UITextField *toDoItem;
 @property (nonatomic, weak) id <UITextFieldDelegate> textFieldDelegate;
-- (IBAction)EditToDo:(id)sender;
+//- (IBAction)EditToDo:(id)sender;
 
 @end
