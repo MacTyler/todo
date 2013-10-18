@@ -11,6 +11,7 @@
 
 @interface ItemsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property(nonatomic, retain) UIColor *barTintColor;
 //@property (strong, nonatomic) NSMutableArray *toDoArray;
 //- (IBAction)addToDoItem:(id)sender;
 

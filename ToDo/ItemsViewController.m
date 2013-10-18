@@ -12,6 +12,7 @@
 @interface ItemsViewController ()
 
 @property (strong, nonatomic) NSMutableArray *toDoArray;
+@property (nonatomic, retain) UINavigationBar *customNavigationBar;
 
 @end
 
@@ -30,8 +31,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //set bar color
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0]];
+    
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
+    //set title and title color
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+    
+    //set back button color
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil] forState:UIControlStateNormal];
+    
+    //set back button arrow color
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    
     self.tableView.backgroundColor = [UIColor clearColor];
+    
     self.tableView.opaque = NO;
+    
     UINib *customNIB = [UINib nibWithNibName:@"itemCell" bundle:nil];
     
     self.clearsSelectionOnViewWillAppear = NO;
@@ -109,7 +128,7 @@
     static NSString *CellIdentifier = @"itemCell";
     
     itemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
+    
     cell.toDoItem.text = [_toDoArray objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -195,8 +214,8 @@
     float greenColorGrade;
     float redColorGrade;
     blueColorGrade = 1.0 - (indexPath.row * .05);
-//    greenColorGrade = 0.1 - (indexPath.row * .1);
-//    redColorGrade = (indexPath.row * .08);
+    greenColorGrade = 0.1 - (indexPath.row * .1);
+    redColorGrade = (indexPath.row * .08);
     cell.backgroundColor = [UIColor colorWithRed: redColorGrade green: greenColorGrade blue: blueColorGrade alpha: 1.0];
     
     cell.textLabel.backgroundColor = [UIColor clearColor];
@@ -217,6 +236,7 @@
     
     return YES;
 }
+
 /*
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
